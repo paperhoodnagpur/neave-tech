@@ -1,80 +1,85 @@
-import type { Metadata, Viewport } from 'next';
-import './globals.css';
-import { Space_Mono, Bricolage_Grotesque, DM_Sans, Poppins } from 'next/font/google';
-import SmoothScrollProvider from '@/components/providers/SmoothScrollProvider';
-import Loader from '@/components/Loader';
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+import {
+  Space_Mono,
+  Bricolage_Grotesque,
+  DM_Sans,
+  Poppins,
+} from "next/font/google";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import Loader from "@/components/Loader";
 
 const spaceMono = Space_Mono({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-poppins',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 // Clash Display stand-in — swap with self-hosted Fontshare files later.
 const display = Bricolage_Grotesque({
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
 });
 
 // Satoshi stand-in — swap with self-hosted Fontshare files later.
 const sans = DM_Sans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://neavetechnologies.com'),
+  metadataBase: new URL("https://neave,tech"),
   title: {
-    default: 'NeaveTech — Enterprise & Government IT Solutions',
-    template: '%s · NeaveTech',
+    default: "NeaveTech — Enterprise & Government IT Solutions",
+    template: "%s · NeaveTech",
   },
   description:
-    'NeaveTech builds scalable IT systems for government and enterprise. Custom ERP, IoT, blockchain, cloud, and digital infrastructure engineered in Nagpur, India.',
+    "NeaveTech builds scalable IT systems for government and enterprise. Custom ERP, IoT, blockchain, cloud, and digital infrastructure engineered in Nagpur, India.",
   keywords: [
-    'NeaveTech',
-    'Government IT',
-    'Enterprise ERP',
-    'IoT Solutions',
-    'Nagpur software company',
-    'Custom ERP',
-    'Blockchain',
-    'Digital transformation',
+    "NeaveTech",
+    "Government IT",
+    "Enterprise ERP",
+    "IoT Solutions",
+    "Nagpur software company",
+    "Custom ERP",
+    "Blockchain",
+    "Digital transformation",
   ],
-  authors: [{ name: 'NeaveTech' }],
+  authors: [{ name: "NeaveTech" }],
   openGraph: {
-    title: 'NeaveTech — Enterprise & Government IT Solutions',
+    title: "NeaveTech — Enterprise & Government IT Solutions",
     description:
-      'Scalable IT systems for government & enterprise. ERP, IoT, Cloud, AI, Blockchain.',
-    url: 'https://neavetechnologies.com',
-    siteName: 'NeaveTech',
-    locale: 'en_IN',
-    type: 'website',
+      "Scalable IT systems for government & enterprise. ERP, IoT, Cloud, AI, Blockchain.",
+    url: "https://neave.tech",
+    siteName: "NeaveTech",
+    locale: "en_IN",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'NeaveTech — Enterprise & Government IT Solutions',
+    card: "summary_large_image",
+    title: "NeaveTech — Enterprise & Government IT Solutions",
     description:
-      'Scalable IT systems for government & enterprise. ERP, IoT, Cloud, AI, Blockchain.',
+      "Scalable IT systems for government & enterprise. ERP, IoT, Cloud, AI, Blockchain.",
   },
   robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#F7F9F7' },
-    { media: '(prefers-color-scheme: dark)', color: '#090C0A' },
+    { media: "(prefers-color-scheme: light)", color: "#F7F9F7" },
+    { media: "(prefers-color-scheme: dark)", color: "#090C0A" },
   ],
 };
 

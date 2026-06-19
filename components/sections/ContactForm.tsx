@@ -240,8 +240,8 @@ export default function ContactForm() {
         <p className="text-sm text-brand-deep">
           ✓ Message received — we'll be in touch within one business day. Prefer
           to write directly?{" "}
-          <a className="ulink" href="mailto:contact@neavetechnologies.com">
-            contact@neavetechnologies.com
+          <a className="ulink" href="mailto:mail@neave.tech">
+            mail@neave.tech
           </a>
         </p>
       )}
@@ -249,8 +249,8 @@ export default function ContactForm() {
       {status === "error" && (
         <p className="text-sm text-red-500">
           {errorMsg} You can also reach us at{" "}
-          <a className="ulink" href="mailto:contact@neavetechnologies.com">
-            contact@neavetechnologies.com
+          <a className="ulink" href="mailto:mail@neave.tech">
+            mail@neave.tech
           </a>
         </p>
       )}

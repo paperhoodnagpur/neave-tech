@@ -1,34 +1,34 @@
-import type { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/sections/Footer';
-import RevealText from '@/components/RevealText';
-import ContactForm from '@/components/sections/ContactForm';
+import type { Metadata } from "next";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/sections/Footer";
+import RevealText from "@/components/RevealText";
+import ContactForm from "@/components/sections/ContactForm";
 
 export const metadata: Metadata = {
-  title: 'Contact — Start a Project',
+  title: "Contact — Start a Project",
   description:
-    'Tell NeaveTech what you are building. We reply within one business day with an architecture and delivery plan for your ERP, IoT, cloud, blockchain, or web project.',
-  alternates: { canonical: '/contact' },
+    "Tell NeaveTech what you are building. We reply within one business day with an architecture and delivery plan for your ERP, IoT, cloud, blockchain, or web project.",
+  alternates: { canonical: "/contact" },
   openGraph: {
-    title: 'Contact NeaveTech — Start a Project',
+    title: "Contact NeaveTech — Start a Project",
     description:
-      'Tell us what you are building. We reply within one business day with an architecture and delivery plan — not a pitch.',
-    url: 'https://neavetechnologies.com/contact',
+      "Tell us what you are building. We reply within one business day with an architecture and delivery plan — not a pitch.",
+    url: "https://neave.tech/contact",
   },
 };
 
 const steps = [
   {
-    title: 'You send the brief',
-    desc: 'A few lines on what you operate and where it bottlenecks. No NDA needed to talk.',
+    title: "You send the brief",
+    desc: "A few lines on what you operate and where it bottlenecks. No NDA needed to talk.",
   },
   {
-    title: 'We scope it',
-    desc: 'Within one business day you get an architecture sketch and a realistic delivery plan.',
+    title: "We scope it",
+    desc: "Within one business day you get an architecture sketch and a realistic delivery plan.",
   },
   {
-    title: 'We build, founder-led',
-    desc: 'One engineering team across all six service lines — no handoffs, no agency layers.',
+    title: "We build, founder-led",
+    desc: "One engineering team across all six service lines — no handoffs, no agency layers.",
   },
 ];
 
@@ -49,8 +49,9 @@ export default function ContactPage() {
               Let&apos;s build your digital infrastructure.
             </RevealText>
             <p className="text-muted text-lg leading-relaxed">
-              Tell us what you&apos;re operating, where it&apos;s bottlenecking, and where it has
-              to be in two years. We&apos;ll come back with an architecture and a delivery plan.
+              Tell us what you&apos;re operating, where it&apos;s bottlenecking,
+              and where it has to be in two years. We&apos;ll come back with an
+              architecture and a delivery plan.
             </p>
           </div>
 
@@ -74,7 +75,9 @@ export default function ContactPage() {
                         <h3 className="font-display text-lg tracking-tight leading-tight">
                           {s.title}
                         </h3>
-                        <p className="text-muted text-sm leading-relaxed mt-1">{s.desc}</p>
+                        <p className="text-muted text-sm leading-relaxed mt-1">
+                          {s.desc}
+                        </p>
                       </div>
                     </li>
                   ))}
@@ -87,19 +90,20 @@ export default function ContactPage() {
                 <div className="eyebrow">Reach us directly</div>
                 <ul className="flex flex-col gap-3 text-ink/80">
                   <li>
-                    <a className="ulink" href="mailto:contact@neavetechnologies.com">
-                      contact@neavetechnologies.com
+                    <a className="ulink" href="mailto:mail@neave.tech">
+                      mail@neave.tech
                     </a>
                   </li>
                   <li>
-                    <a className="ulink" href="tel:+910000000000">
-                      +91 00000 00000
+                    <a className="ulink" href="tel:+919284755883">
+                      +91 928-475-5883
                     </a>
                   </li>
                   <li className="text-muted">Nagpur, Maharashtra, India</li>
                 </ul>
                 <div className="mt-2 inline-flex items-center gap-2 text-sm text-muted">
-                  <span className="w-2 h-2 rounded-full bg-brand" /> Available for new engagements
+                  <span className="w-2 h-2 rounded-full bg-brand" /> Available
+                  for new engagements
                 </div>
               </div>
             </aside>
