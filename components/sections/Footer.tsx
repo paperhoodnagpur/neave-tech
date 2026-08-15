@@ -101,15 +101,17 @@ export default function Footer() {
             © 2025 NeaveTech. All rights reserved.
           </div>
           <div className="flex items-center gap-5 text-sm text-muted">
-            <a href="#" className="ulink">
+            <Link href="/privacy#privacy" className="ulink">
               Privacy
-            </a>
-            <a href="#" className="ulink">
+            </Link>
+
+            <Link href="/privacy#terms" className="ulink">
               Terms
-            </a>
-            <a href="#" className="ulink">
+            </Link>
+
+            <Link href="/sitemap.xml" className="ulink">
               Sitemap
-            </a>
+            </Link>
           </div>
         </div>
       </div>
