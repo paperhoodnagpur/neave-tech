@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import {
   Space_Mono,
@@ -38,7 +39,7 @@ const sans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://neave,tech"),
+  metadataBase: new URL("https://neave.tech"),
   title: {
     default: "NeaveTech — Enterprise & Government IT Solutions",
     template: "%s · NeaveTech",
@@ -99,6 +100,20 @@ export default function RootLayout({
     >
       <body className="bg-bg text-ink">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18382933787"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18382933787');
+    `}
+        </Script>
         <Loader />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
