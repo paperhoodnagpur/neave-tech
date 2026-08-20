@@ -3,6 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
   try {
+<<<<<<< HEAD
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
     const recipientEmail = process.env.RECIPIENT_EMAIL;
@@ -15,6 +16,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
+=======
+>>>>>>> a4517c55ee78281a23fdbfea723fb6ae0813685b
     const body = await req.json();
     const { name, email, company, phone, service, budget, timeline, message } =
       body;
@@ -32,8 +35,13 @@ export async function POST(req: NextRequest) {
       port: 465,
       secure: true, // SSL
       auth: {
+<<<<<<< HEAD
         user: smtpUser,
         pass: smtpPass,
+=======
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+>>>>>>> a4517c55ee78281a23fdbfea723fb6ae0813685b
       },
     });
 
@@ -86,8 +94,13 @@ export async function POST(req: NextRequest) {
     `;
 
     await transporter.sendMail({
+<<<<<<< HEAD
       from: `"Neave Technologies Contact" <${smtpUser}>`,
       to: recipientEmail,
+=======
+      from: `"Neave Technologies Contact" <${process.env.SMTP_USER}>`,
+      to: process.env.RECIPIENT_EMAIL,
+>>>>>>> a4517c55ee78281a23fdbfea723fb6ae0813685b
       replyTo: email,
       subject: `New inquiry — ${company || name}`,
       html: htmlBody,
