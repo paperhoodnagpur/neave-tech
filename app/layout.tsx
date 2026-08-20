@@ -95,10 +95,7 @@ export default function RootLayout({
     >
       <body className="bg-bg text-ink">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-<<<<<<< HEAD
-=======
         {/* Meta Pixel base code — fires PageView on every page */}
->>>>>>> a4517c55ee78281a23fdbfea723fb6ae0813685b
         <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -109,7 +106,6 @@ export default function RootLayout({
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-<<<<<<< HEAD
 
             if (!window.__neaveMetaPageViewTracked) {
               fbq('init', '1396716755074216');
@@ -119,11 +115,6 @@ export default function RootLayout({
           `}
         </Script>
         {/* Meta Pixel base code — fires PageView on every page */}
-=======
-            fbq('init', '1396716755074216');
-            fbq('track', 'PageView');
-          `}
-        </Script>
         <noscript>
           <img
             height="1"
@@ -133,7 +124,6 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
->>>>>>> a4517c55ee78281a23fdbfea723fb6ae0813685b
         <Loader />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>

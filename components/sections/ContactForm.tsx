@@ -56,18 +56,13 @@ const fieldBase =
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(initial);
-<<<<<<< HEAD
   const [isSubmitting, setIsSubmitting] = useState(false);
-=======
-  const [sent, setSent] = useState(false);
->>>>>>> a4517c55ee78281a23fdbfea723fb6ae0813685b
 
   const update =
     (key: keyof FormState) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
       setForm(f => ({ ...f, [key]: e.target.value }));
 
-<<<<<<< HEAD
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
@@ -78,7 +73,9 @@ export default function ContactForm() {
     // This avoids the browser cancelling the event during the redirect.
     window.sessionStorage.setItem('neaveLeadSubmitted', 'true');
     window.location.assign('/thank-you');
-=======
+  };
+
+  /*
   // MVP: compose a structured email. Swap for a real endpoint (Resend / API
   // route / Formspree) when the backend is ready — see /app/api/contact.
   const onSubmit = (e: React.FormEvent) => {
@@ -105,8 +102,7 @@ export default function ContactForm() {
     if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
       (window as any).fbq('track', 'Lead');
     }
->>>>>>> a4517c55ee78281a23fdbfea723fb6ae0813685b
-  };
+  */
 
   return (
     <motion.form
@@ -205,13 +201,8 @@ export default function ContactForm() {
       </label>
 
       <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
-<<<<<<< HEAD
         <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
           {isSubmitting ? 'Sending…' : 'Send inquiry'}
-=======
-        <button type="submit" className="btn btn-primary">
-          Send inquiry
->>>>>>> a4517c55ee78281a23fdbfea723fb6ae0813685b
           <span className="arrow inline-block" aria-hidden>
             ↗
           </span>
@@ -221,8 +212,7 @@ export default function ContactForm() {
         </p>
       </div>
 
-<<<<<<< HEAD
-=======
+      {/*
       {sent && (
         <p className="text-sm text-brand-deep">
           Thanks — your email client should have opened. Prefer to write directly?{' '}
@@ -231,7 +221,7 @@ export default function ContactForm() {
           </a>
         </p>
       )}
->>>>>>> a4517c55ee78281a23fdbfea723fb6ae0813685b
+      */}
     </motion.form>
   );
 }
