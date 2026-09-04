@@ -95,6 +95,24 @@ export default function RootLayout({
     >
       <body className="bg-bg text-ink">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+
+        {/* Apollo Website Tracker */}
+        <Script id="apollo-tracker" strategy="afterInteractive">
+          {`
+            function initApollo(){
+              var n=Math.random().toString(36).substring(7),
+              o=document.createElement("script");
+              o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,
+              o.async=!0,
+              o.defer=!0,
+              o.onload=function(){
+                window.trackingFunctions.onLoad({appId:"6a7ad137974f74000c611cb7"})
+              },
+              document.head.appendChild(o)
+            }
+            initApollo();
+          `}
+        </Script>
         {/* Meta Pixel base code — fires PageView on every page */}
         <Script id="fb-pixel" strategy="afterInteractive">
           {`
