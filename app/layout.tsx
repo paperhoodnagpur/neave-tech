@@ -79,8 +79,7 @@ export const viewport: Viewport = {
   ],
 };
 
-// Runs before paint to apply the saved/system theme and avoid a flash.
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+const themeScript = `try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -94,7 +93,28 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-bg text-ink">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5352NS8R"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+
+        {/* Google Tag Manager */}
+        <Script id="gtm" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5352NS8R');
+          `}
+        </Script>
 
         {/* Apollo Website Tracker */}
         <Script id="apollo-tracker" strategy="afterInteractive">
@@ -113,6 +133,7 @@ export default function RootLayout({
             initApollo();
           `}
         </Script>
+
         {/* Meta Pixel base code — fires PageView on every page */}
         <Script id="fb-pixel" strategy="afterInteractive">
           {`
@@ -131,8 +152,8 @@ export default function RootLayout({
               window.__neaveMetaPageViewTracked = true;
             }
           `}
+
         </Script>
-        {/* Meta Pixel base code — fires PageView on every page */}
         <noscript>
           <img
             height="1"
