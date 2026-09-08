@@ -34,12 +34,20 @@ const studies = [
   },
 ];
 
+// ========== CHANGE: Better descriptive alt texts ==========
 function ImagePanel({ image, no }: { image: string; no: string }) {
+  const altText =
+    no === '01'
+      ? 'Transport Tracking System — Real-time GPS fleet monitoring for a state transport department'
+      : no === '02'
+      ? 'Digital Workflow System — End-to-end digitization of departmental approvals and KPI dashboards'
+      : 'Business ERP System — Custom ERP unifying procurement, HR, inventory and finance';
+
   return (
     <div className="relative overflow-hidden">
       <Image
         src={image}
-        alt={`Case Study ${no}`}
+        alt={altText}
         fill
         sizes="(max-width: 1024px) 100vw, 50vw"
         className="object-cover"

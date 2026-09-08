@@ -7,12 +7,34 @@ import { useReducedMotion } from '@/lib/useReducedMotion';
 const row1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const row2 = [10, 11, 12, 13, 14, 15, 16, 17, 18];
 
+// ========== CHANGE: Descriptive alt texts ==========
+const clientAlts: Record<number, string> = {
+  1: "NeaveTech client logo 1 — Government and MSME project partner",
+  2: "NeaveTech client logo 2 — Government and MSME project partner",
+  3: "NeaveTech client logo 3 — Government and MSME project partner",
+  4: "NeaveTech client logo 4 — Government and MSME project partner",
+  5: "NeaveTech client logo 5 — Government and MSME project partner",
+  6: "NeaveTech client logo 6 — Government and MSME project partner",
+  7: "NeaveTech client logo 7 — Government and MSME project partner",
+  8: "NeaveTech client logo 8 — Government and MSME project partner",
+  9: "NeaveTech client logo 9 — Government and MSME project partner",
+  10: "NeaveTech client logo 10 — Government and MSME project partner",
+  11: "NeaveTech client logo 11 — Government and MSME project partner",
+  12: "NeaveTech client logo 12 — Government and MSME project partner",
+  13: "NeaveTech client logo 13 — Government and MSME project partner",
+  14: "NeaveTech client logo 14 — Government and MSME project partner",
+  15: "NeaveTech client logo 15 — Government and MSME project partner",
+  16: "NeaveTech client logo 16 — Government and MSME project partner",
+  17: "NeaveTech client logo 17 — Government and MSME project partner",
+  18: "NeaveTech client logo 18 — Government and MSME project partner",
+};
+
 function ClientLogo({ index }: { index: number }) {
   return (
     <div className="flex-none w-36 h-20 rounded-xl border border-line bg-white flex items-center justify-center p-3 mx-3 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-brand/40 hover:bg-brand/5 cursor-pointer">
       <Image
         src={`/client-${index}.png`}
-        alt={`Client ${index}`}
+        alt={clientAlts[index] || `NeaveTech client ${index}`}
         width={120}
         height={56}
         className="object-contain w-full h-full transition-opacity duration-300 hover:opacity-100 opacity-80"

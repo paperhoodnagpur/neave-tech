@@ -79,42 +79,108 @@ export const viewport: Viewport = {
   ],
 };
 
-const themeScript = `try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}`;
+// Runs before paint to apply the saved/system theme and avoid a flash.
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');var d=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // ========== CHANGE 1: JSON-LD Structured Data (Organization + LocalBusiness) ==========
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.neave.tech/#organization",
+        "name": "NeaveTech",
+        "alternateName": ["Neave Tech", "Neave Corporation Pvt. Ltd."],
+        "url": "https://www.neave.tech",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.neave.tech/logo.png"
+        },
+        "email": "mail@neave.tech",
+        "telephone": "+91-9284755883",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nagpur",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "description": "NeaveTech builds scalable IT systems for government and enterprise. Custom ERP, IoT, blockchain, cloud, and digital infrastructure engineered in Nagpur, India.",
+        "foundingDate": "2023",
+        "areaServed": {
+          "@type": "Country",
+          "name": "India"
+        },
+        "knowsAbout": [
+          "Custom ERP Development",
+          "IoT Solutions",
+          "Government IT Systems",
+          "Cloud Solutions",
+          "Blockchain",
+          "AI & Automation",
+          "Digital Transformation"
+        ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.neave.tech/#localbusiness",
+        "name": "NeaveTech",
+        "image": "https://www.neave.tech/logo.png",
+        "url": "https://www.neave.tech",
+        "telephone": "+91-9284755883",
+        "email": "mail@neave.tech",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nagpur",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "priceRange": "$$",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "10:30",
+            "closes": "18:30"
+          }
+        ],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "ISO Certification"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "MSME Registration"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "MahaIT Empanelment"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <html
       lang="en"
       className={`${display.variable} ${sans.variable} ${spaceMono.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
+      {/* ========== CHANGE 2: <head> mein schema inject ========== */}
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-bg text-ink">
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-5352NS8R"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          />
-        </noscript>
-
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-
-        {/* Google Tag Manager */}
-        <Script id="gtm" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-5352NS8R');
-          `}
-        </Script>
 
         {/* Apollo Website Tracker */}
         <Script id="apollo-tracker" strategy="afterInteractive">
@@ -152,7 +218,6 @@ export default function RootLayout({
               window.__neaveMetaPageViewTracked = true;
             }
           `}
-
         </Script>
         <noscript>
           <img
@@ -163,6 +228,7 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+
         <Loader />
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
