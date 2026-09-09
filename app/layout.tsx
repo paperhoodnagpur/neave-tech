@@ -34,7 +34,7 @@ const sans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://neavetechnologies.com'),
+  metadataBase: new URL('https://www.neave.tech'),   // ✅ FIXED
   title: {
     default: 'NeaveTech — Enterprise & Government IT Solutions',
     template: '%s · NeaveTech',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: 'NeaveTech — Enterprise & Government IT Solutions',
     description:
       'Scalable IT systems for government & enterprise. ERP, IoT, Cloud, AI, Blockchain.',
-    url: 'https://neavetechnologies.com',
+    url: 'https://www.neave.tech',   // ✅ FIXED
     siteName: 'NeaveTech',
     locale: 'en_IN',
     type: 'website',
@@ -90,7 +90,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // ========== CHANGE 1: JSON-LD Structured Data (Organization + LocalBusiness) ==========
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -175,7 +174,6 @@ export default function RootLayout({
       className={`${display.variable} ${sans.variable} ${spaceMono.variable} ${poppins.variable}`}
       suppressHydrationWarning
     >
-      {/* ========== CHANGE 2: <head> mein schema inject ========== */}
       <head>
         <script
           type="application/ld+json"
