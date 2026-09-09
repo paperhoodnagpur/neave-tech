@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Legal Policies — Neave Tech",
     description:
       "Legal policies governing the website, products and services offered by Neave Tech.",
-    url: "https://neave.tech/privacy",
+    url: "https://www.neave.tech/privacy",
   },
 };
 

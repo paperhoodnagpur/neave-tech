@@ -23,7 +23,7 @@ export function generateMetadata({ params }: Params): Metadata {
     openGraph: {
       title: `${service.title} · NeaveTech`,
       description: service.summary,
-      url: `https://neave.tech/services/${service.slug}`,
+      url: `https://www.neave.tech/services/${service.slug}`,
     },
   };
 }

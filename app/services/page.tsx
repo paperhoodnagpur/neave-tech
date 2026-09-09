@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "NeaveTech Services — Six Lines, One Engineering Team",
     description:
       "ERP, IoT, Cloud, Blockchain & AI, Web & Security, and Digital Marketing — engineered together for government and enterprise.",
-    url: "https://neave.tech/services",
+    url: "https://www.neave.tech/services",
   },
 };
 

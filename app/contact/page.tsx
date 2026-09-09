@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Contact NeaveTech — Start a Project",
     description:
       "Tell us what you are building. We reply within one business day with an architecture and delivery plan — not a pitch.",
-    url: "https://neave.tech/contact",
+   url: "https://www.neave.tech/contact",
   },
 };
 
