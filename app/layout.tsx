@@ -68,6 +68,9 @@ export const metadata: Metadata = {
       'Scalable IT systems for government & enterprise. ERP, IoT, Cloud, AI, Blockchain.',
   },
   robots: { index: true, follow: true },
+  alternates: {
+    canonical: 'https://www.neave.tech',
+  },
 };
 
 export const viewport: Viewport = {
