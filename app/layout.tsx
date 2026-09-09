@@ -34,7 +34,7 @@ const sans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.neave.tech'),   // ✅ FIXED
+  metadataBase: new URL('https://www.neave.tech'),
   title: {
     default: 'NeaveTech — Enterprise & Government IT Solutions',
     template: '%s · NeaveTech',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: 'NeaveTech — Enterprise & Government IT Solutions',
     description:
       'Scalable IT systems for government & enterprise. ERP, IoT, Cloud, AI, Blockchain.',
-    url: 'https://www.neave.tech',   // ✅ FIXED
+    url: 'https://www.neave.tech',
     siteName: 'NeaveTech',
     locale: 'en_IN',
     type: 'website',
@@ -70,6 +70,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: {
     canonical: 'https://www.neave.tech',
+  },
+  verification: {
+    google: 'Gro9HqXImrkjUVAwBA3uHYuwfrPxV74RxaZeD1mhaW4',
   },
 };
 
@@ -175,6 +178,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <meta
+          name="google-site-verification"
+          content="Gro9HqXImrkjUVAwBA3uHYuwfrPxV74RxaZeD1mhaW4"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
