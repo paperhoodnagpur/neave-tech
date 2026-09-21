@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
     });
 
     await transporter.sendMail({
-      from: smtpUser,
+      from: `NeaveTech <${smtpUser}>`,
       to: recipientEmail,
       replyTo: email,
       subject: `New project inquiry from ${name}`,
